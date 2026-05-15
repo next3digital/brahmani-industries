@@ -1,0 +1,21 @@
+# Robots.txt - Brahmani Industries
+# Precision Manufacturing | Ahmedabad, Gujarat
+
+User-agent: *
+Allow: /
+
+# Block admin, auth and sensitive areas from indexing
+Disallow: /admin/
+Disallow: /login
+Disallow: /two-factor
+Disallow: /profile/
+Disallow: /home
+
+# Block query-string-only versions to avoid duplicate content
+Disallow: /*?*page=
+
+# Crawl delay (optional - respect server load)
+Crawl-delay: 1
+
+# XML Sitemaps
+Sitemap: https://www.brahmaniindustries.com/sitemap.xml

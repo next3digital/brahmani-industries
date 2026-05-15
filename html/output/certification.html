@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications & Quality Assurance | Precision Manufacturing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ffffff; /* Changed to white for better contrast */
+            --secondary: #ffd49b;
+            --text-light: #f8f8f8;
+            --text-dark: #333333;
+            --bg-light: #000000; /* Set background to black */
+            --form-bg: rgba(255, 255, 255, 0.1); /* Slightly transparent for cards */
+            --section-bg: rgba(255, 255, 255, 0.2); /* Slightly transparent for sections */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-light); /* Changed text color to light for contrast */
+            line-height: 1.6;
+            background-color: var(--bg-light); /* Set background to black */
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1581091012180-1c1c1c1c1c1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+        }
+
+        .section {
+            padding: 3rem 5%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary); /* Changed to white for better contrast */
+        }
+
+        .certifications-section {
+            background: var(--section-bg); /* Slightly transparent background */
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto; /* Center the grid */
+        }
+
+        .certification-card {
+            background: var(--form-bg); /* Slightly transparent for cards */
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certification-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .quality-control-section {
+            background: var(--section-bg); /* Slightly transparent background */
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .quality-control-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .quality-control-title {
+            font-size: 1.8rem;
+            color: var(--primary); /* Changed to white for better contrast */
+            margin-bottom: 0.5rem;
+        }
+
+        .quality-control-description {
+            color: var(--text-light); /* Changed to light for better contrast */
+        }
+
+        .sustainability {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .sustainability-item {
+            text-align: center;
+            margin: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .sustainability-item:hover {
+            transform: scale(1.1);
+        }
+
+        .sustainability-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .certification-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Certifications & Quality Assurance</h1>
+    </section>
+    
+    <div class="section certifications-section" id="certifications">
+        <h2 class="section-title">Our Certifications</h2>
+        <div class="certification-grid">
+            <div class="certification-card">
+                <i class="fas fa-certificate certification-icon"></i>
+                <h3>GST No. 24ARIPP4824E1ZV</h3>
+                <p>Registered under GST.</p>
+            </div>
+            <div class="certification-card">
+                <i class="fas fa-certificate certification-icon"></i>
+                <h3>UDYAM Registration</h3>
+                <p>Affirming MSME status.</p>
+            </div>
+            <div class="certification-card">
+                <i class="fas fa-certificate certification-icon"></i>
+                <h3>Industry Norms</h3>
+                <p>Focus on precision machining and quality.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section quality-control-section">
+        <h2 class="section-title">Quality Control Procedures</h2>
+        <div class="quality-control-item">
+            <h3 class="quality-control-title">In-House Inspection</h3>
+            <p class="quality-control-description">Emphasize in-house inspection and quality assurance at every stage of production. Use of advanced CNC machinery ensures dimensional accuracy and repeatability.</p>
+        </div>
+        <div class="quality-control-item">
+            <h3 class="quality-control-title">Product Tolerance Checks</h3>
+            <p class="quality-control-description">Products like hex nuts, threaded nuts, and valve end caps are manufactured with strict tolerance checks to meet client specifications.</p>
+        </div>
+    </div>
+    
+    <div class="section quality-control-section">
+        <h2 class="section-title">Equipment Calibration</h2>
+        <div class="quality-control-item">
+            <h3 class="quality-control-title">Calibration Protocols</h3>
+            <p class="quality-control-description">Though detailed calibration protocols aren’t published, their reliance on CNC turning and precision tools implies regular maintenance and calibration cycles to ensure consistent output. Likely follow standard practices such as gauge calibration, tool wear monitoring, and machine alignment checks.</p>
+        </div>
+    </div>
+    
+    <div class="section sustainability-section">
+        <h2 class="section-title">Sustainability Practices</h2>
+        <div class="sustainability">
+            <div class="sustainability-item">
+                <i class="fas fa-recycle sustainability-icon"></i>
+                <h3>Clean Manufacturing</h3>
+                <p>Brahmani Industries highlights clean and efficient manufacturing as part of their service promise.</p>
+            </div>
+            <div class="sustainability-item">
+                <i class="fas fa-solar-panel sustainability-icon"></i>
+                <h3>Advanced Processing</h3>
+                <p>Product processing includes advanced cleaning and sorting technologies, reducing waste and improving material efficiency.</p>
+            </div>
+            <div class="sustainability-item">
+                <i class="fas fa-leaf sustainability-icon"></i>
+                <h3>Responsible Sourcing</h3>
+                <p>Commitment to responsible sourcing and minimizing environmental impact through sustainable practices.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // No JavaScript needed for this version
+    </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+@extends('layouts.admin')
+@section('content')
+
+<div class="card">
+    <div class="card-header">
+        Create Product Category
+    </div>
+
+    <div class="card-body">
+        <form method="POST" action="{{ route("admin.product-categories.store") }}" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label class="required" for="name">Name</label>
+                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
+                @if($errors->has('name'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('name') }}
+                    </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <label class="required" for="slug">Slug</label>
+                <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}" required>
+                @if($errors->has('slug'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('slug') }}
+                    </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description') }}</textarea>
+                @if($errors->has('description'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('description') }}
+                    </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <div class="needsclick dropzone {{ $errors->has('image') ? 'is-invalid' : '' }}" id="image-dropzone">
+                </div>
+                @if($errors->has('image'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('image') }}
+                    </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <label for="meta_title">Meta Title</label>
+                <input class="form-control {{ $errors->has('meta_title') ? 'is-invalid' : '' }}" type="text" name="meta_title" id="meta_title" value="{{ old('meta_title', '') }}">
+                @if($errors->has('meta_title'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('meta_title') }}
+                    </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <label for="meta_description">Meta Description</label>
+                <textarea class="form-control {{ $errors->has('meta_description') ? 'is-invalid' : '' }}" name="meta_description" id="meta_description">{{ old('meta_description') }}</textarea>
+                @if($errors->has('meta_description'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('meta_description') }}
+                    </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="is_active" id="is_active" value="1" {{ old('is_active', true) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="is_active">
+                        Active
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@endsection
+
+@section('scripts')
+<script>
+    Dropzone.options.imageDropzone = {
+    url: '{{ route('admin.product-categories.storeMedia') }}',
+    maxFilesize: 2, // MB
+    acceptedFiles: '.jpeg,.jpg,.png,.gif',
+    maxFiles: 1,
+    addRemoveLinks: true,
+    headers: {
+      'X-CSRF-TOKEN': "{{ csrf_token() }}"
+    },
+    params: {
+      size: 2,
+      width: 4096,
+      height: 4096
+    },
+    success: function (file, response) {
+      $('form').find('input[name="image"]').remove()
+      $('form').append('<input type="hidden" name="image" value="' + response.name + '">')
+    },
+    removedfile: function (file) {
+      file.previewElement.remove()
+      if (file.status !== 'error') {
+        $('form').find('input[name="image"]').remove()
+        this.options.maxFiles = this.options.maxFiles + 1
+      }
+    },
+    init: function () {
+
+    },
+    error: function (file, response) {
+        if ($.type(response) === 'string') {
+            var message = response //dropzone sends it's own error messages in string
+        } else {
+            var message = response.errors.file
+        }
+        file.previewElement.classList.add('dz-error')
+        _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+        _results = []
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i]
+            _results.push(node.textContent = message)
+        }
+
+        return _results
+    }
+}
+
+// Auto-generate slug from name
+$('#name').on('blur', function() {
+    var name = $(this).val();
+    var slug = name.toLowerCase()
+        .replace(/[^\w ]+/g,'')
+        .replace(/ +/g,'-');
+    $('#slug').val(slug);
+});
+</script>
+
+@endsection

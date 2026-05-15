@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Precision Manufacturing Process | Brahmani Industries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        :root {
+            --primary: #ffffff; /* Changed to white for better contrast */
+            --secondary: #ffd49b;
+            --accent: #e5b96e;
+            --text-dark: #333333;
+            --text-light: #f8f8f8;
+            --bg-dark: #000000; /* Set background to black */
+            --card-bg: rgba(255, 255, 255, 0.1); /* Slightly transparent for cards */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Montserrat", "Segoe UI", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .process-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)),
+                url("https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80") center/cover no-repeat;
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .process-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .process-header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .process-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 5px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        .step-card p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 0 2rem 5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--secondary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 1.2rem 3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .cta-button i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 1024px) {
+            .process-header h1 {
+                font-size: 3rem;
+            }
+
+            .process-header p {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-header {
+                padding: 3rem 1.5rem;
+            }
+
+            .process-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-header p {
+                font-size: 1.2rem;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-card {
+                padding: 2rem;
+            }
+
+            .step-card h3 {
+                font-size: 1.6rem;
+            }
+
+            .step-card p {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 1rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-header h1 {
+                font-size: 2rem;
+            }
+
+            .step-card {
+                padding: 1.8rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="process-header" data-aos="fade">
+        <h1>Our Manufacturing Process</h1>
+        <p>
+            Precision engineered components through advanced CNC technology and rigorous quality control
+        </p>
+    </header>
+
+    <section class="process-section">
+        <div class="process-grid">
+            <!-- Step 1 -->
+            <div class="step-card" data-aos="fade-up">
+                <div class="step-number">1</div>
+                <div class="step-icon"><i class="fas fa-cubes"></i></div>
+                <h3>Raw Material Selection</h3>
+                <p>
+                    We meticulously source high-quality metal alloys from trusted suppliers to ensure exceptional durability, strength, and optimal machinability for all our components.
+                </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-number">2</div>
+                <div class="step-icon"><i class="fas fa-cogs"></i></div>
+                <h3>CNC Machining</h3>
+                <p>
+                    Our state-of-the-art CNC turning centers deliver micron-level precision with tight tolerances (±0.01mm), producing components with flawless surface finishes and perfect geometries.
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-number">3</div>
+                <div class="step-icon"><i class="fas fa-tools"></i></div>
+                <h3>Threading & Finishing</h3>
+                <p>
+                    Advanced thread cutting and precision deburring processes create perfectly formed threads while surface treatments enhance corrosion resistance and aesthetic appeal.
+                </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-number">4</div>
+                <div class="step-icon"><i class="fas fa-search"></i></div>
+                <h3>Quality Inspection</h3>
+                <p>
+                    Every component undergoes rigorous inspection using calibrated gauges, CMMs, and visual checks to verify dimensional accuracy and material specifications.
+                </p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="step-number">5</div>
+                <div class="step-icon"><i class="fas fa-sync-alt"></i></div>
+                <h3>Cleaning & Sorting</h3>
+                <p>
+                    Components undergo ultrasonic cleaning and meticulous sorting processes to ensure absolute cleanliness and proper organization before packaging.
+                </p>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="step-number">6</div>
+                <div class="step-icon"><i class="fas fa-box-open"></i></div>
+                <h3>Packaging & Dispatch</h3>
+                <p>
+                    Products are securely packed in customized packaging with proper cushioning, labeled with full traceability, and dispatched with reliable logistics partners.
+                </p>
+            </div>
+        </div>
+
+        <div class="cta-container" data-aos="fade-up">
+            <a href="product-section.html" class="cta-button">
+                View Our Products <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: "ease-out-quart",
+        });
+    </script>
+</body>
+
+</html>

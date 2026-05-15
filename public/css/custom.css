@@ -1,0 +1,19 @@
+.datatable {
+    width: 100% !important;
+}
+
+.dataTables_scrollHeadInner {
+    width: 100% !important;
+}
+
+.dataTables_scrollHeadInner table {
+    width: 100% !important;
+}
+
+.c-main {
+    padding-top: 2rem;
+}
+
+.ajaxTable {
+    width: 100% !important;
+}
